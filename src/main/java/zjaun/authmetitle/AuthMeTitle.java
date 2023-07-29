@@ -262,16 +262,16 @@ public class AuthMeTitle extends JavaPlugin implements Listener {
         if (decor == null) {
             return Optional.empty();
         } else {
-            switch (decor) {
-                case "BOLD":
+            switch (decor.toLowerCase()) {
+                case "bold":
                     return Optional.of(TextDecoration.BOLD);
-                case "ITALIC":
+                case "italic":
                     return Optional.of(TextDecoration.ITALIC);
-                case "OBFUSCATED":
+                case "obfuscated":
                     return Optional.of(TextDecoration.OBFUSCATED);
-                case "STRIKETHROUGH":
+                case "strikethrough":
                     return Optional.of(TextDecoration.STRIKETHROUGH);
-                case "UNDERLINED":
+                case "underlined":
                     return Optional.of(TextDecoration.UNDERLINED);
                 default:
                     return Optional.empty();
