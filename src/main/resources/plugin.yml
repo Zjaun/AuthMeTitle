@@ -1,0 +1,6 @@
+name: authmetitle
+version: "1.0-SNAPSHOT"
+author: Zjaun
+main: zjaun.authmetitle.AuthMeTitle
+api-version: '1.20'
+soft-depend: [AuthMe]
