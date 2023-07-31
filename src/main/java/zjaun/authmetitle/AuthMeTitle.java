@@ -75,24 +75,10 @@ public class AuthMeTitle extends JavaPlugin implements Listener {
         String subTitleMessage = subTitle(playerName, unregMessagesSubtitle(), "unregPlayer");
         NamedTextColor mainColor = color("unreg.unreg_screen.color");
         NamedTextColor subColor = color("unreg.unreg_subtitle.color");
-        Component mainTitle;
-        Component subTitle;
-        TextDecoration mainDecor;
-        TextDecoration subDecor;
         Optional<TextDecoration> mainDecorOption = decor("unreg.unreg_screen.format");
         Optional<TextDecoration> subDecorOption = decor("unreg.unreg_subtitle.format");
-        if (mainDecorOption.isPresent()) {
-            mainDecor = mainDecorOption.get();
-            mainTitle = Component.text(mainTitleMessage, mainColor, mainDecor);
-        } else {
-            mainTitle = Component.text(mainTitleMessage, mainColor);
-        }
-        if (subDecorOption.isPresent()) {
-            subDecor = subDecorOption.get();
-            subTitle = Component.text(subTitleMessage, subColor, subDecor);
-        } else {
-            subTitle = Component.text(subTitleMessage, subColor);
-        }
+        Component mainTitle = (mainDecorOption.isPresent()) ? Component.text(mainTitleMessage, mainColor, mainDecorOption.get()) : Component.text(mainTitleMessage, mainColor);
+        Component subTitle = (subDecorOption.isPresent()) ? Component.text(subTitleMessage, subColor, subDecorOption.get()) : Component.text(subTitleMessage, subColor);
         Times time = Times.times(Duration.ofMillis(250), Duration.ofDays(7), Duration.ofMillis(250));
         Title title = Title.title(mainTitle, subTitle, time);
         player.showTitle(title);
@@ -105,24 +91,10 @@ public class AuthMeTitle extends JavaPlugin implements Listener {
         String subTitleMessage = subTitle(playerName, unauthedMessagesSubtitle(), "unregPlayer");
         NamedTextColor mainColor = color("unauthed.unauthed_screen.color");
         NamedTextColor subColor = color("unauthed.unauthed_subtitle.color");
-        TextDecoration mainDecor;
-        TextDecoration subDecor;
         Optional<TextDecoration> mainDecorOption = decor("unauthed.unauthed_screen.format");
         Optional<TextDecoration> subDecorOption = decor("unauthed.unauthed_subtitle.format");
-        Component mainTitle;
-        Component subTitle;
-        if (mainDecorOption.isPresent()) {
-            mainDecor = mainDecorOption.get();
-            mainTitle = Component.text(mainTitleMessage, mainColor, mainDecor);
-        } else {
-            mainTitle = Component.text(mainTitleMessage, mainColor);
-        }
-        if (subDecorOption.isPresent()) {
-            subDecor = subDecorOption.get();
-            subTitle = Component.text(subTitleMessage, subColor, subDecor);
-        } else {
-            subTitle = Component.text(subTitleMessage, subColor);
-        }
+        Component mainTitle = (mainDecorOption.isPresent()) ? Component.text(mainTitleMessage, mainColor, mainDecorOption.get()) : Component.text(mainTitleMessage, mainColor);
+        Component subTitle = (subDecorOption.isPresent()) ? Component.text(subTitleMessage, subColor, subDecorOption.get()) : Component.text(subTitleMessage, subColor);
         Times time = Times.times(Duration.ofMillis(250), Duration.ofDays(7), Duration.ofMillis(250));
         Title title = Title.title(mainTitle, subTitle, time);
         player.showTitle(title);
@@ -138,37 +110,18 @@ public class AuthMeTitle extends JavaPlugin implements Listener {
         long fadeOut = config.getLong("authed.fadeOut");
         NamedTextColor mainColor = color("authed.authed_screen.color");
         NamedTextColor subColor = color("authed.authed_subtitle.color");
-        TextDecoration mainDecor;
-        TextDecoration subDecor;
         Optional<TextDecoration> mainDecorOption = decor("authed.authed_screen.format");
         Optional<TextDecoration> subDecorOption = decor("authed.authed_subtitle.format");
-        Component mainTitle;
-        Component subTitle;
-        if (mainDecorOption.isPresent()) {
-            mainDecor = mainDecorOption.get();
-            mainTitle = Component.text(mainTitleMessage, mainColor, mainDecor);
-        } else {
-            mainTitle = Component.text(mainTitleMessage, mainColor);
-        }
-        if (subDecorOption.isPresent()) {
-            subDecor = subDecorOption.get();
-            subTitle = Component.text(subTitleMessage, subColor, subDecor);
-        } else {
-            subTitle = Component.text(subTitleMessage, subColor);
-        }
+        Component mainTitle = (mainDecorOption.isPresent()) ? Component.text(mainTitleMessage, mainColor, mainDecorOption.get()) : Component.text(mainTitleMessage, mainColor);
+        Component subTitle = (subDecorOption.isPresent()) ? Component.text(subTitleMessage, subColor, subDecorOption.get()) : Component.text(subTitleMessage, subColor);
         Times time = Times.times(Duration.ofMillis(fadeIn), Duration.ofMillis(stay), Duration.ofMillis(fadeOut));
         Title title = Title.title(mainTitle, subTitle, time);
         player.showTitle(title);
     }
 
     private String mainTitle(String playerName, List<String> messages) {
-        String mainTitle;
         Random random = new Random();
-        if (messages.size() == 0) {
-            mainTitle = "WELCOME, " + playerName;
-        } else {
-            mainTitle = messages.get(random.nextInt(messages.size())).replace("name", playerName);
-        }
+        String mainTitle = (messages.size() == 0) ? "WELCOME, " + playerName : messages.get(random.nextInt(messages.size())).replace("name", playerName);
         return mainTitle;
     } 
 
