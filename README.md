@@ -7,15 +7,15 @@ The titles shown here is the default setting per event (LoginEvent, Register Eve
 
 When a player is unregistered:
 
-![image](https://github.com/Zjaun/AuthMeTitle/assets/91415509/bdf5b7c5-0232-4575-8014-797e0a4994d8)
+![image](https://github.com/Zjaun/AuthMeTitle/assets/91415509/87515893-36c8-4805-8834-15a432c9e5e5)
 
 When a player is unauthenticated:
 
-![image](https://github.com/Zjaun/AuthMeTitle/assets/91415509/42c31151-d1f0-4947-b73c-2259587d397c)
+![image](https://github.com/Zjaun/AuthMeTitle/assets/91415509/a8afa334-5cdd-404b-a6cf-ea3002ce3baf)
 
 When a player is authenticated:
 
-![image](https://github.com/Zjaun/AuthMeTitle/assets/91415509/1213dee0-2aa8-402c-b31f-29690366dec6)
+![image](https://github.com/Zjaun/AuthMeTitle/assets/91415509/d5ac1a05-b853-4061-bc59-2d833a4b1dfb)
 
 # Configuration
 
